@@ -1,0 +1,24 @@
+{% extends 'chart.html' %}
+{% block content %}
+<head>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static "bootstrap.css" %}">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+</script>
+</head>
+	{% ifequal chart_type "1" %}
+	<div id="container" align="center">
+        {{ column_chart.as_html }} 
+	{% endifequal %}
+	{% ifequal chart_type "2" %}
+	<div id="container" align="center">
+        {{ pie_chart.as_html }} 
+	{% endifequal %}
+	{% ifequal chart_type "3" %}
+	<div id="container" align="center">
+		{{ column_chart.as_html }}
+        {{ pie_chart.as_html }} 
+	{% endifequal %}
+{% endblock %}

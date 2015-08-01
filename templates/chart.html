@@ -1,0 +1,29 @@
+<h1 align="center"><u>Django Graphos Demo</u></h1>
+<head>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static "bootstrap.css" %}">
+</script>
+</head>
+<body>
+     {% block option %}
+	<div class="form-horizontal">
+	<div class="col-lg-12">
+		<form class = "form-inline" method = "post" action="">
+			{% csrf_token %}
+	    <div class="col-lg-12">
+		    <label>Select Chart : </label>
+			    {{form.status_chart}}
+		</div>
+		<div class="col-lg-12">
+		    {{form.status_chart_type}}
+		</div>
+	    <div class="col-lg-12">
+			<input type="submit" value="Submit" />
+	    </div>
+	    </form>
+		<div class="col-lg-12">
+				{% block content %}{% endblock %}
+		</div> 
+	</div>
+	{% endblock %}
+</body>
